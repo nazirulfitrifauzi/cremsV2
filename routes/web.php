@@ -11,8 +11,6 @@
 |
 */
 
-use App\Http\Controllers\AvatarController;
-
 Route::get('/', 'DashboardController@redirect');
 
 Auth::routes();

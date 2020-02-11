@@ -15,6 +15,14 @@ class Staff extends Model
     protected $dates = [
         'start_date',
     ];
+
+    protected $dateFormat = 'U';
+
+	public function getDateFormat()
+	{
+		return 'Y-m-d H:i:s';	
+    }
+    
     public function user()
     {
         return $this->hasOne(User::class, 'staff_id');

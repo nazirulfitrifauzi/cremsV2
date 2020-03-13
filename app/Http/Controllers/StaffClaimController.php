@@ -24,10 +24,10 @@ class StaffClaimController extends Controller
 
         $total_claim = 0;
         $claim = StaffClaim::where('date', '>=', $firstDay)
-                            ->where('date', '<=', $lastDay)
-                            ->where('status', '1')
-                            ->where('approved', '1')
-                            ->get();
+            ->where('date', '<=', $lastDay)
+            ->where('status', '1')
+            ->where('approved', '1')
+            ->get();
 
         foreach ($claim as $data) {
             $total_claim += $data->amt;
@@ -70,10 +70,10 @@ class StaffClaimController extends Controller
             $newrunningno = sprintf('%09d', $runningno->id + 1);
         }
 
-        $refno        = 'CLA/'.strtoupper($cmonth).$cyear .'/'. $newrunningno;
+        $refno        = 'CLA/' . strtoupper($cmonth) . $cyear . '/' . $newrunningno;
 
         $receipt = $request->file('attachment');
-        $receipt_name = 'receipt_CLA_'.strtoupper($cmonth).$cyear .'_'. $newrunningno . '.jpg';
+        $receipt_name = 'receipt_CLA_' . strtoupper($cmonth) . $cyear . '_' . $newrunningno . '.jpg';
         Storage::disk('local')->putFileAs('public/Receipt', $receipt, $receipt_name);
 
         $staffClaim = new StaffClaim([
@@ -108,6 +108,7 @@ class StaffClaimController extends Controller
             'company'   => $company,
             'claim'     => $claim,
             'user'      => $user,
+
         );
 
         view()->share([
@@ -117,8 +118,8 @@ class StaffClaimController extends Controller
         $pdf_name = $claim->ref_no . '.pdf';
 
         $data = [
-                'title'     => $pdf_name
-            ];
+            'title'     => $pdf_name
+        ];
 
         $pdf = PDF::loadView('claim.pdf.form', $data);
         return $pdf->stream();

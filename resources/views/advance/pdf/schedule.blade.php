@@ -36,33 +36,58 @@
         .page-break {
             page-break-after: always;
         }
+
+        table {
+  
+         border-collapse: collapse;
+         width: 100%;
+         
+        
+        }
     </style>
 </head>
 <body>
     <main>
-        <h1>Repayment Schedule</h1>
-        <h3>Amount: {{$amt}}</h3>
-        <table>
+        <table border="0" width="100%">
+            <tr>
+                <th rowspan="3" width="20%"><img src="{{ public_path('argon/img/brand/csc_blue.png') }}" height="60px"></th>
+                <th colspan="2"></th>
+            </tr>
+            <tr>
+                <td width="1%"></td>
+                <td valign="middle"><h1>REPAYMENT SCHEDULE</h1></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+        </table>
+        <br>
+       
+       
+        <table style="color:black" width="100%" border="1px" >
             <thead>
-                <tr>
-                    <td>Month</td>
-                    <td>Installment</td>
+                <tr bgcolor="#D3D3D3" >
+                    <td><b>MONTH</b></td>
+                    <td align="right"><b>INSTALLMENT </b></td>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($content['months'] as $month)
                     <tr>
                         <td>{{$month}}</td>
-                        <td>{{ number_format($deduct,2) }}</td>
+                        <td align="right">{{ number_format($deduct,2) }}<br><br></td>
+                       
                     </tr>
                 @endforeach
                 <tr>
                     <td>{{$last_month}}</td>
-                    <td>{{ number_format($last_deduct,2) }}</td>
+                    <td  align="right">{{ number_format($last_deduct,2) }} <br><br></td>
                 </tr>
             </tbody>
             
         </table>
+
+        <h3>AMOUNT: {{$amt}}</h3>
     </main>
 
     <script type="text/php">

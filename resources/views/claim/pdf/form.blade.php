@@ -113,7 +113,10 @@
                     <td><u><b>RM {{ number_format($content['claim']->amt,2) }}</b></u></td>
                 </tr>
             </table>
+       
+
         </div>
+        
 
         <p><strong>ATTACHMENT</strong></p>
         <img src="{{ public_path('storage/Receipt/') }}{{ $content['claim']->attachment }}" width="50%">

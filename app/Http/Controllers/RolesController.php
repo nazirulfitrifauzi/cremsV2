@@ -24,7 +24,7 @@ class RolesController extends Controller
         $this->validate($request, [
             'role' => ['required', 'string', 'max:50']
         ]);
-        
+
         if (!empty($request->get('p_attendance'))) {
             $c_attendance = $request->get('p_attendance');
         }
@@ -134,14 +134,14 @@ class RolesController extends Controller
             'p_client_company',
             'p_client_user'
         ]);
-        
+
         Role::whereId($id)->update($data);
-        
+
         return redirect()->route('roles.index')->withStatus('Role successfully updated');
     }
 
     public function destroy($id)
-    {   
+    {
         $role = Role::where('id',$id)->value('role');
 
         Role::destroy($id);

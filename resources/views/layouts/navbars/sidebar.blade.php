@@ -242,6 +242,11 @@
                         <i class="far fa-building"></i> Company
                     </a>
                 </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('issues.index') }}">
+                        <i class="fas fa-exclamation"></i> Issues
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -15,6 +15,7 @@ Route::get('/', 'DashboardController@redirect');
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -31,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/notifications', 'NotificationController@updateNotification')->name('updateNotifications');
 
     // attendance
-    Route::resource('attendances', 'AttendanceController', ['except' => ['create','show','edit','update','destroy']]);
+    Route::resource('attendances', 'AttendanceController', ['except' => ['create', 'show', 'edit', 'update', 'destroy']]);
 
     // staff leave
     Route::resource('staff-leave', 'StaffLeaveController');
@@ -74,4 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // company
     Route::resource('company', 'CompanyController');
+
+    // issues
+    Route::resource('issues', 'IssuesController');
 });

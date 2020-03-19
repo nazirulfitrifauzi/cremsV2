@@ -99,7 +99,7 @@ class IssuesController extends Controller
     public function destroy(Issues $issue)
     {
         $id = $issue->id;
-        $issue = Issues::where('id', $id)->value('issues');
+        $issue = Issues::where('id', $id)->value('id');
 
         Issues::destroy($id);
 

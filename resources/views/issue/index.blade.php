@@ -88,7 +88,7 @@
   
                 $.ajax({
                     type: 'POST',
-                    url: "{{ url('issue')}}" + '/' + id,
+                    url: "{{ url('issues')}}" + '/' + id,
                     data: {'_token' : CSRF_TOKEN, '_method' : 'DELETE'},
                     dataType: 'JSON',
                     success: function (results) {
@@ -96,7 +96,7 @@
                             Swal.fire(
                               "Done!",results.message,"success"
                             ).then(function() {
-                              window.location = "{{ url('issue')}}";
+                              window.location = "{{ url('issues')}}";
                             });
                         } else {
                             swal("Error!", results.message, "error");

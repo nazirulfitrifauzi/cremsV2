@@ -13,7 +13,7 @@
                                 <h3 class="mb-0">Issues</h3>
                             </div>
                             <div class="col-4 te...xt-right">
-                                <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary">Add Issue</a>
+                                <a href="{{ route('issues.create') }}" class="btn btn-sm btn-primary">Add Issue</a>
                             </div>
                         </div>
                     </div>

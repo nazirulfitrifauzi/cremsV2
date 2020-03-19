@@ -1,7 +1,6 @@
 @extends('layouts.app', ['title' => 'Issues Management'])
 
 @section('content')
-    @include('users.partials.header', ['title' => 'Issues List']) 
 
     @section('style')
 <style>
@@ -56,7 +55,7 @@
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                               </div>
-                                          <input class="form-control form-control-alternative datepicker" name="start_date" placeholder="Select date" type="text" value="{{ now()->format('m/d/Y') }}" required>
+                                          <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ now()->format('m/d/Y') }}" required>
                                           </div>
                                       </div>
                                   </div>
@@ -65,17 +64,17 @@
 
                               <div class="form-group">
                                 <label class="form-control-label" for="input-name">Issue Subject</label>
-                                <input type="text" name="issuesubject" id="input-issuesubject" class="form-control form-control-alternative" placeholder="Issue Subject" value="" required="">
+                                <input type="text" name="subject" id="input-subject" class="form-control form-control-alternative" placeholder="Issue Subject" value="" required="">
                             </div> 
 
                             <div class="form-group">
                               <label class="form-control-label" for="input-name">Issue Description</label>
-                              <input type="text" name="issuesDescription" id="input-issuesDescription" class="form-control form-control-alternative" placeholder="Issue Description" value="" required="">
+                              <input type="text" name="description" id="input-description" class="form-control form-control-alternative" placeholder="Issue Description" value="" required="">
                           </div> 
 
                               <div class="form-group">
                                   <label class="form-control-label" for="input-csc-email">Email</label>
-                                  <input type="email" name="csc_email" id="input-csc-email" class="form-control form-control-alternative" placeholder="Email" value="{{ old('csc_email') }}" required="">
+                                  <input type="csc_email" name="csc_email" id="input-csc-email" class="form-control form-control-alternative" placeholder="Email" value="{{ old('csc_email') }}" required="">
                               </div>
                          
                               <div class="text-center">

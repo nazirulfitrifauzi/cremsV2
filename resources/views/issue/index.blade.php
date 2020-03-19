@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Issues Management'])
 
 @section('content')
-    @include('users.partials.header', ['title' => 'Issues List'])  
+    @include('users.partials.header', ['title' => 'Issues'])  
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -10,7 +10,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Issues</h3>
+                                <h3 class="mb-0">Issues List</h3>
                             </div>
                             <div class="col-4 te...xt-right">
                                 <a href="{{ route('issues.create') }}" class="btn btn-sm btn-primary">Add Issue</a>
@@ -34,16 +34,20 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Issues</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col"></th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($Issues as $issue)
                                     <tr>
-                                        <td>{{ $issue->issue }}</td>
+                                        <td>{{ $issue->subject }}</td>
+                                        <td>{{ $issue->name }}</td>
+                                        <td>{{ $issue->date }}</td>
                                         <td class="text-right">
                                             <div class="row" style="float:right;margin-right:5px;">
-                                                <a href="{{ route('issue.edit', $issue) }}" class="btn btn-sm btn-default"><i class="ni ni-settings"></i></a>
                                                 <a onclick="deleteData({{ $issue->id }})" style="color:white;" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                                             </div>
                                         </td>
@@ -84,7 +88,7 @@
   
                 $.ajax({
                     type: 'POST',
-                    url: "{{ url('roles')}}" + '/' + id,
+                    url: "{{ url('issue')}}" + '/' + id,
                     data: {'_token' : CSRF_TOKEN, '_method' : 'DELETE'},
                     dataType: 'JSON',
                     success: function (results) {
@@ -92,7 +96,7 @@
                             Swal.fire(
                               "Done!",results.message,"success"
                             ).then(function() {
-                              window.location = "{{ url('roles')}}";
+                              window.location = "{{ url('issue')}}";
                             });
                         } else {
                             swal("Error!", results.message, "error");

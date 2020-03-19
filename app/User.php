@@ -39,16 +39,16 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->hasOne(Role::class,'id','role');
+        return $this->hasOne(Role::class, 'id', 'role');
     }
 
     public function staff_info()
     {
-        return $this->hasOne(Staff::class,'id','staff_id');
+        return $this->hasOne(Staff::class, 'id', 'staff_id');
     }
 
     public function client_user()
     {
-        return $this->hasOne(ClientUser::class,'id','client_id');
+        return $this->hasOne(ClientUser::class, 'id', 'client_id');
     }
 }

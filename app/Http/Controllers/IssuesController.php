@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Issues;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class IssuesController extends Controller
@@ -22,7 +23,7 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Issues $issue)
+    public function create()
     {
         return view('issue.create');
     }
@@ -35,7 +36,24 @@ class IssuesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $start = Carbon::createFromFormat('m/d/Y', $request->get('date'));
+
+        // $issue = new Issues([
+        $issue = new Issues([
+            'name'              =>  $request->get('name'),
+            'date'              =>  $start->format('Y-m-d'),
+            'subject'           =>  $request->get('subject'),
+            'description'       =>  $request->get('description'),
+            'email'             =>  $request->get('csc_email')
+            // column name => name dri form frontend
+        ]);
+
+        $issue->save();
+
+        session()->flash('success', 'Issue successfully added.');
+        return redirect()->route('issues.index');
     }
 
     /**
@@ -57,7 +75,7 @@ class IssuesController extends Controller
      */
     public function edit(Issues $issue)
     {
-        //
+        return view('issues.edit', compact('issues'));
     }
 
     /**
@@ -80,6 +98,15 @@ class IssuesController extends Controller
      */
     public function destroy(Issues $issue)
     {
-        //
+        $id = $issue->id;
+        $issue = Issues::where('id', $id)->value('issues');
+
+        Issues::destroy($id);
+
+        //  Return response
+        return response()->json([
+            'success' => true,
+            'message' => "Issue " . $issue . " has been deleted.",
+        ]);
     }
 }

@@ -22,9 +22,9 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Issues $issue)
     {
-        //
+        return view('issue.create');
     }
 
     /**

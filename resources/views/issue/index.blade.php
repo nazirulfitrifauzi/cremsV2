@@ -48,6 +48,7 @@
                                         <td>{{ $issue->date }}</td>
                                         <td class="text-right">
                                             <div class="row" style="float:right;margin-right:5px;">
+                                                <a href="{{ route('issues.edit', $issue) }}" class="btn btn-sm btn-default"><i class="ni ni-settings"></i></a>
                                                 <a onclick="deleteData({{ $issue->id }})" style="color:white;" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                                             </div>
                                         </td>

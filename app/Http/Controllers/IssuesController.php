@@ -75,7 +75,9 @@ class IssuesController extends Controller
      */
     public function edit(Issues $issue)
     {
-        return view('issues.edit', compact('issues'));
+        $id = $issue->id;
+        $issue = Issues::find($id);
+        return view('issue.edit', compact('issue'));
     }
 
     /**

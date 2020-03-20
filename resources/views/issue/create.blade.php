@@ -47,6 +47,7 @@
                                   <label class="form-control-label" for="input-name">Name</label>
                                   <input type="text" name="name" id="input-name" class="form-control form-control-alternative" placeholder="Name" value="{{ old('name') }}" required="" autofocus="">
                               </div>
+
                               <div class="row">
                                   <div class="col-md-6">
                                       <div class="form-group">
@@ -55,6 +56,7 @@
                                               <div class="input-group-prepend">
                                                   <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                               </div>
+
                                           <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ now()->format('m/d/Y') }}" required>
                                           </div>
                                       </div>
@@ -73,8 +75,8 @@
                           </div> 
 
                               <div class="form-group">
-                                  <label class="form-control-label" for="input-csc-email">Email</label>
-                                  <input type="csc_email" name="csc_email" id="input-csc-email" class="form-control form-control-alternative" placeholder="Email" value="{{ old('csc_email') }}" required="">
+                                  <label class="form-control-label" for="input-email">Email</label>
+                                  <input type="email" name="email" id="input-email" class="form-control form-control-alternative" placeholder="Email" value="{{ old('email') }}" required="">
                               </div>
                          
                               <div class="text-center">

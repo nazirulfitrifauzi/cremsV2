@@ -50,6 +50,7 @@
                                             <div class="row" style="float:right;margin-right:5px;">
                                                 <a href="{{ route('issues.edit', $issue) }}" class="btn btn-sm btn-default"><i class="ni ni-settings"></i></a>
                                                 <a onclick="deleteData({{ $issue->id }})" style="color:white;" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{ route('issues.show',$issue) }}" class="btn btn-sm btn-primary">Show</a>
                                             </div>
                                         </td>
                                     </tr>

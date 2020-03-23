@@ -28,6 +28,7 @@ class IssuesController extends Controller
         return view('issue.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -46,7 +47,8 @@ class IssuesController extends Controller
             'date'              =>  $start->format('Y-m-d'),
             'subject'           =>  $request->get('subject'),
             'description'       =>  $request->get('description'),
-            'email'             =>  $request->get('csc_email')
+            'email'             =>  $request->get('csc_email'),
+
             // column name => name dri form frontend
         ]);
 
@@ -64,7 +66,12 @@ class IssuesController extends Controller
      */
     public function show(Issues $issues)
     {
-        //
+        return view('issue.show', ['Issues' => $issues->paginate(15)]);
+    }
+
+    public function assign(Issues $issues)
+    {
+        return view('issue.assign');
     }
 
     /**

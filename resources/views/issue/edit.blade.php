@@ -45,7 +45,7 @@
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
                                                 
-                                            <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ now()->format('m/d/Y') }}" required>
+                                            <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ $issue->date }}" required>
                                             </div>
                                         </div>
                                     </div>

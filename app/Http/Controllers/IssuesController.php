@@ -47,8 +47,7 @@ class IssuesController extends Controller
             'date'              =>  $start->format('Y-m-d'),
             'subject'           =>  $request->get('subject'),
             'description'       =>  $request->get('description'),
-            'email'             =>  $request->get('csc_email'),
-
+            'email'             =>  $request->get('email')
             // column name => name dri form frontend
         ]);
 
@@ -96,7 +95,17 @@ class IssuesController extends Controller
      */
     public function update(Request $request, Issues $issue)
     {
-        //
+
+        $issue->name = request('name');
+        $issue->date = request('date');
+        $issue->subject = request('subject');
+        $issue->description = request('description');
+        $issue->email = request('email');
+
+        $issue->save();
+
+        session()->flash('success', 'Staff info successfully updated.');
+        return back();
     }
 
     /**

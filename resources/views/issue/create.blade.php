@@ -57,7 +57,7 @@
                                                   <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                               </div>
 
-                                          <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ now()->format('m/d/Y') }}" required>
+                                          <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ now()->format('d/m/Y') }}" required>
                                           </div>
                                       </div>
                                   </div>
@@ -78,6 +78,23 @@
                                   <label class="form-control-label" for="input-email">Email</label>
                                   <input type="email" name="email" id="input-email" class="form-control form-control-alternative" placeholder="Email" value="{{ old('email') }}" required="">
                               </div>
+                              <div class="form-group">
+                                    <label class="form-control-label" for="staffAssigned">Assign Staff</label>
+                                        <select name="staffAssigned" id="staffAssigned" class="form-control form-control-alternative" required="">
+                                            <option value="Unassigned">Unassigned</option>
+                                            <option value="Nazirul">Nazirul</option>
+                                            <option value="Aizuddin">Aizuddin</option>
+                                            <option value="Anis">Anis</option>
+                                            <option value="Safwan">Safwan</option>
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="status">Status</label>
+                                        <select name="status" id="status" class="form-control form-control-alternative" required="">
+                                            <option value="Unsolved">Unsolved</option>
+                                            <option value="Solved">Solved</option>
+                                        </select>
+                                </div>
                          
                               <div class="text-center">
                                   <button type="submit" class="btn btn-success mt-4">Save</button>

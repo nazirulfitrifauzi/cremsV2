@@ -27,7 +27,7 @@
                                 <div class="pl-lg-4">
                                   <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                       <label class="form-control-label" for="name">Name</label>
-                                  <input type="text" name="name" id="name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" value="{{ $issue->name }}" required autofocus>
+                                        <input type="text" name="name" id="name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Name" value="{{ $issue->name }}" required autofocus>
 
                                       @if ($errors->has('name'))
                                           <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
                                                 
-                                            <input class="form-control form-control-alternative datepicker" name="date" placeholder="Select date" type="text" value="{{ $issue->date }}" required>
+                                            <input class="form-control form-control-alternative datepicker" name="date" placeholder="" type="text" value="{{ $issue->date->format('d/m/Y') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -62,6 +62,7 @@
                                           </span>
                                       @endif
                                   </div>
+
                                   <div class="form-group">
                                     <label class="form-control-label" for="subject">Issue Description</label>
                                     <textarea name="description" id="description" class="form-control form-control-alternative{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="Issue Description" required="">{{ $issue->description }}</textarea>
@@ -75,7 +76,7 @@
 
                                
                                  
-                                      <div class="form-group">
+                                <div class="form-group">
                                           <label class="form-control-label" for="email">Email</label>
                                           <input type="text" name="email" id="email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" required="" value="{{ $issue->email }}">
   
@@ -85,7 +86,25 @@
                                               </span>
                                           @endif
                                     
-                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="staffAssigned">Assign Staff</label>
+                                        <select name="staffAssigned" id="staffAssigned" class="form-control form-control-alternative" required="">
+                                            <option value="Unassigned" {{ $issue->staffAssigned == "Unassigned" ? 'selected' : '' }}>Unassigned</option>
+                                            <option value="Nazirul" {{ $issue->staffAssigned == "Nazirul" ? 'selected' : '' }}>Nazirul</option>
+                                            <option value="Aizuddin" {{ $issue->staffAssigned == "Aizuddin" ? 'selected' : '' }}>Aizuddin</option>
+                                            <option value="Anis" {{ $issue->staffAssigned == "Anis" ? 'selected' : '' }}>Anis</option>
+                                            <option value="Safwan" {{ $issue->staffAssigned == "Safwan" ? 'selected' : '' }}>Safwan</option>
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="status">Status</label>
+                                        <select name="status" id="status" class="form-control form-control-alternative" required="">
+                                            <option value="Unsolved">Unsolved</option>
+                                            <option value="Solved">Solved</option>
+                                        </select>
+                                </div>
 
                                   <div class="text-center">
                                       <button type="submit" class="btn btn-success mt-4">Update</button>

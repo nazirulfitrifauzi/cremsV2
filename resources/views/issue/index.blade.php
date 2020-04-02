@@ -33,9 +33,9 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Issues</th>
-                                    <th scope="col">Name</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Issues</th>
                                     <th scope="col"></th>
 
                                 </tr>
@@ -43,14 +43,14 @@
                             <tbody>
                                 @foreach ($Issues as $issue)
                                     <tr>
-                                        <td>{{ $issue->subject }}</td>
-                                        <td>{{ $issue->name }}</td>
                                         <td>{{ $issue->date }}</td>
+                                        <td>{{ $issue->name }}</td>
+                                        <td>{{ $issue->subject }}</td>
                                         <td class="text-right">
                                             <div class="row" style="float:right;margin-right:5px;">
                                                 <a href="{{ route('issues.edit', $issue) }}" class="btn btn-sm btn-default"><i class="ni ni-settings"></i></a>
                                                 <a onclick="deleteData({{ $issue->id }})" style="color:white;" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                                <a href="{{ route('issues.show',$issue) }}" class="btn btn-sm btn-primary">Show</a>
+                                                <a href="{{ route('issues.show', $issue) }}" class="btn btn-sm btn-primary">Show</a>
                                             </div>
                                         </td>
                                     </tr>

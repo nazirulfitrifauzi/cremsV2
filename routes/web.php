@@ -76,5 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('company', 'CompanyController');
 
     // issues
-    Route::resource('issues', 'IssuesController');
+    Route::resources([
+        'issues' => 'IssuesController',
+        'IssueDetail' => 'IssueDetailController',
+    ]);
 });

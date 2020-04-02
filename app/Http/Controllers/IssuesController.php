@@ -15,6 +15,16 @@ class IssuesController extends Controller
      */
     public function index(Issues $issue)
     {
+        // if(auth()->user()->roles->role == 'Staff')
+        // {
+        //     $Issues = Issues::where()
+        // }
+        // else
+        // {
+        //     $Issues = Issues::all()->paginate(15);
+        // }
+
+
         return view('issue.index', ['Issues' => $issue->paginate(15)]);
     }
 
@@ -39,15 +49,16 @@ class IssuesController extends Controller
     {
         // dd($request->all());
 
-        $start = Carbon::createFromFormat('m/d/Y', $request->get('date'));
+        $newdate = Carbon::createFromFormat('m/d/Y', $request->get('date'));
 
-        // $issue = new Issues([
         $issue = new Issues([
             'name'              =>  $request->get('name'),
-            'date'              =>  $start->format('Y-m-d'),
+            'date'              =>  $newdate,
             'subject'           =>  $request->get('subject'),
             'description'       =>  $request->get('description'),
-            'email'             =>  $request->get('email')
+            'email'             =>  $request->get('email'),
+            'staffAssigned'     =>  $request->get('staffAssigned'),
+            'status'            =>  $request->get('status')
             // column name => name dri form frontend
         ]);
 
@@ -63,14 +74,12 @@ class IssuesController extends Controller
      * @param  \App\Issues  $issues
      * @return \Illuminate\Http\Response
      */
-    public function show(Issues $issues)
+    public function show(Issues $issue)
     {
-        return view('issue.show', ['Issues' => $issues->paginate(15)]);
-    }
+        $id = $issue->id;
+        $issue = Issues::find($id);
 
-    public function assign(Issues $issues)
-    {
-        return view('issue.assign');
+        return view('issue.show', compact('issue'));
     }
 
     /**
@@ -95,16 +104,21 @@ class IssuesController extends Controller
      */
     public function update(Request $request, Issues $issue)
     {
+        //dd($request->all());
+        $newdate = Carbon::createFromFormat('m/d/Y', $request->get('date'));
 
         $issue->name = request('name');
-        $issue->date = request('date');
+        $issue->date = $newdate;
         $issue->subject = request('subject');
         $issue->description = request('description');
         $issue->email = request('email');
+        $issue->staffAssigned = request('staffAssigned');
+        $issue->status = request('status');
 
-        $issue->save();
+        $issue->update();
 
-        session()->flash('success', 'Staff info successfully updated.');
+
+        session()->flash('success', 'Issue successfully updated.');
         return back();
     }
 

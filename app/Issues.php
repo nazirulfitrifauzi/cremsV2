@@ -16,4 +16,9 @@ class Issues extends Model
     protected $dates = [
         'date',
     ];
+
+    //public function staff()
+    //{
+    //return $this->hasOne(Staff::class, 'name');
+    //}
 }

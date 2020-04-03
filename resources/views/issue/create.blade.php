@@ -81,11 +81,9 @@
                               <div class="form-group">
                                     <label class="form-control-label" for="staffAssigned">Assign Staff</label>
                                         <select name="staffAssigned" id="staffAssigned" class="form-control form-control-alternative" required="">
-                                            <option value="Unassigned">Unassigned</option>
-                                            <option value="Nazirul">Nazirul</option>
-                                            <option value="Aizuddin">Aizuddin</option>
-                                            <option value="Anis">Anis</option>
-                                            <option value="Safwan">Safwan</option>
+                                            @foreach ($staff as $staff)
+                                                <option value="{{ $staff->name }}">{{ $staff->name}}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                                 <div class="form-group">

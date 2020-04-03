@@ -91,11 +91,9 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="staffAssigned">Assign Staff</label>
                                         <select name="staffAssigned" id="staffAssigned" class="form-control form-control-alternative" required="">
-                                            <option value="Unassigned" {{ $issue->staffAssigned == "Unassigned" ? 'selected' : '' }}>Unassigned</option>
-                                            <option value="Nazirul" {{ $issue->staffAssigned == "Nazirul" ? 'selected' : '' }}>Nazirul</option>
-                                            <option value="Aizuddin" {{ $issue->staffAssigned == "Aizuddin" ? 'selected' : '' }}>Aizuddin</option>
-                                            <option value="Anis" {{ $issue->staffAssigned == "Anis" ? 'selected' : '' }}>Anis</option>
-                                            <option value="Safwan" {{ $issue->staffAssigned == "Safwan" ? 'selected' : '' }}>Safwan</option>
+                                            @foreach($staff as $staff)
+                                                <option value="{{ $staff->name }}">{{ $staff->name}}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                                 <div class="form-group">

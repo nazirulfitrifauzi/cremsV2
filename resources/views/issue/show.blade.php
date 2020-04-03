@@ -20,53 +20,49 @@
 
 
                     <body>
-                    <style>
-                        .css{
-                            display: block;
+                        <style>
+                         .css{
+                                display: block;
                             
-                        }
-                    </style>
+                            }
+                        </style>
 
-                    <span class=css><b>Name</b></span>
-                     <span class=css>{{ $issue->name }}</span>
+                        <span class=css><b>Name</b></span>
+                        <span class=css>{{ $issue->name }}</span>
 
-                    <br>
+                        <br>
                     
-                    <span class=css><b>Email</b></span>
-                     <span class=css>{{ $issue->email }}</span>
+                        <span class=css><b>Email</b></span>
+                        <span class=css>{{ $issue->email }}</span>
 
-                    <br>
+                        <br>
 
-                    <span class=css><b>Issue Subject</b></span>
-                     <span class=css>{{ $issue->subject }}</span>
+                        <span class=css><b>Issue Subject</b></span>
+                        <span class=css>{{ $issue->subject }}</span>
 
-                    <br>
+                        <br>
 
-                    <span class=css><b>Issue Description</b></span>
-                     <span class=css>{{ $issue->description }}</span>
+                        <span class=css><b>Issue Description</b></span>
+                        <span class=css>{{ $issue->description }}</span>
 
-                    <br>
+                        <br>
 
-                    <span class=css><b>Date of Issue</b></span>
-                     <span class=css>{{ $issue->date->format('d/m/Y')}}</span>
+                        <span class=css><b>Date of Issue</b></span>
+                        <span class=css>{{ $issue->date->format('d/m/Y')}}</span>
 
-                    <br>
+                        <br>
 
-                    <span class=css><b>Staff Assigned</b></span>
-                    <span class=css>{{ $issue->staffAssigned }}</span>
+                        <span class=css><b>Staff Assigned</b></span>
+                        <span class=css>{{ $issue->staffAssigned }}</span>
 
-                   <br>
+                        <br>
 
-                   <span class=css><b>Status</b></span>
-                   <span class=css>{{ $issue->status }}</span>
+                        <span class=css><b>Status</b></span>
+                        <span class=css>{{ $issue->status }}</span>
 
-                  <br>
+                        <br>
                 
                     </body>
-
-                    </div>
-
-                    </div>
                 </div>
             </div>
         </div>

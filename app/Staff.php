@@ -18,11 +18,11 @@ class Staff extends Model
 
     protected $dateFormat = 'U';
 
-	public function getDateFormat()
-	{
-		return 'Y-m-d H:i:s';	
+    public function getDateFormat()
+    {
+        return 'Y-m-d H:i:s';
     }
-    
+
     public function user()
     {
         return $this->hasOne(User::class, 'staff_id');
@@ -42,4 +42,9 @@ class Staff extends Model
     {
         return $this->hasMany(StaffClaim::class, 'staff_id');
     }
+
+    //public function issue()
+    //{
+    //return $this->hasMany(Issues::class, 'id');
+    //}
 }

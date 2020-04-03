@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Staff;
 use App\Issues;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Issues $issue)
+    public function index(Issues $issue, Staff $staff)
     {
         // if(auth()->user()->roles->role == 'Staff')
         // {
@@ -33,9 +34,10 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Staff $staff)
     {
-        return view('issue.create');
+        $staff = Staff::all();
+        return view('issue.create', compact('staff'));
     }
 
 
@@ -74,12 +76,11 @@ class IssuesController extends Controller
      * @param  \App\Issues  $issues
      * @return \Illuminate\Http\Response
      */
-    public function show(Issues $issue)
+    public function show(Issues $issue, Staff $staff)
     {
         $id = $issue->id;
         $issue = Issues::find($id);
-
-        return view('issue.show', compact('issue'));
+        return view('issue.show', compact('issue', 'staff'));
     }
 
     /**
@@ -88,11 +89,12 @@ class IssuesController extends Controller
      * @param  \App\Issues  $issues
      * @return \Illuminate\Http\Response
      */
-    public function edit(Issues $issue)
+    public function edit(Issues $issue, Staff $staff)
     {
+        $staff = Staff::all();
         $id = $issue->id;
         $issue = Issues::find($id);
-        return view('issue.edit', compact('issue'));
+        return view('issue.edit', compact('issue', 'staff'));
     }
 
     /**
@@ -102,7 +104,7 @@ class IssuesController extends Controller
      * @param  \App\Issues  $issues
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Issues $issue)
+    public function update(Request $request, Issues $issue, Staff $staff)
     {
         //dd($request->all());
         $newdate = Carbon::createFromFormat('m/d/Y', $request->get('date'));

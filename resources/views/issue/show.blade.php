@@ -17,51 +17,53 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Issue Subject</th>
-                                    <th scope="col">Issue Description</th>
-                                    <th scope="col">Date of Issue</th>
-                                   
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <tr>
-                                    <td>{{ $issue->name }}</td>
-                                    <td>{{ $issue->email }}</td>
-                                    <td>{{ $issue->subject }}</td>
-                                    <td>{{ $issue->description }}</td>
-                                    <td>{{ $issue->date->format('d/m/Y')}}</td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">Staff Assigned</th>
-                                    <th scope="col">Status</th>
-                                    
-                                   
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <tr>
-                                    <td>{{ $issue->staffAssigned }}</td>
-                                    <td>{{ $issue->status }}</td>
-                                    
-                                </tr>
-                                
-                            </tbody>
-                        </table>
+                    <body>
+                    <style>
+                        .css{
+                            display: block;
+                            
+                        }
+                    </style>
+
+                    <span class=css><b>Name</b></span>
+                     <span class=css>{{ $issue->name }}</span>
+
+                    <br>
+                    
+                    <span class=css><b>Email</b></span>
+                     <span class=css>{{ $issue->email }}</span>
+
+                    <br>
+
+                    <span class=css><b>Issue Subject</b></span>
+                     <span class=css>{{ $issue->subject }}</span>
+
+                    <br>
+
+                    <span class=css><b>Issue Description</b></span>
+                     <span class=css>{{ $issue->description }}</span>
+
+                    <br>
+
+                    <span class=css><b>Date of Issue</b></span>
+                     <span class=css>{{ $issue->date->format('d/m/Y')}}</span>
+
+                    <br>
+
+                    <span class=css><b>Staff Assigned</b></span>
+                    <span class=css>{{ $issue->staffAssigned }}</span>
+
+                   <br>
+
+                   <span class=css><b>Status</b></span>
+                   <span class=css>{{ $issue->status }}</span>
+
+                  <br>
+                
+                    </body>
+
                     </div>
 
                     </div>
